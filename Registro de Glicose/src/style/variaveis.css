@@ -1,0 +1,200 @@
+:root {
+  /* Cores principais */
+  --color-bg: #fdf7f7;
+  --color-surface: #ffffff;
+  --color-primary: #dc2626;        /* vermelho padrão */
+  --color-primary-strong: #b91c1c; /* vermelho mais forte */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #e5b4b4;         /* borda com tom avermelhado */
+  --color-danger: #991b1b;
+
+  /* Tipografia */
+  --font-family-base: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  --fs-h1: clamp(1.75rem, 2.8vw, 2.2rem);
+  --fs-h2: clamp(1.35rem, 2.2vw, 1.75rem);
+  --fs-h3: clamp(1.1rem, 1.8vw, 1.35rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--fs-body);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(239, 68, 68, 0.22) 0%, transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(220, 38, 38, 0.20) 0%, transparent 38%),
+    linear-gradient(155deg, #fff1f2 0%, #ffe4e6 45%, #fecdd3 100%);
+  background-size: 180% 180%;
+  background-attachment: fixed;
+  animation: fundoSuave 32s linear infinite;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--color-surface);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, white);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+button {
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-primary-strong);
+}
+
+
+
+
+@keyframes fundoSuave {
+ 0% {
+    background-position: 12% 18%, 88% 82%, 20% 50%;
+  }
+  50% {
+    background-position: 16% 14%, 84% 86%, 80% 50%;
+  }
+  100% {
+    background-position: 12% 18%, 88% 82%, 20% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+
+/* animação de gota de sangue
+
+*/
+
+.blood-drops {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.blood-drops::before,
+.blood-drops::after {
+  content: "";
+  position: absolute;
+  width: 220%;
+  height: 220%;
+  left: -60%;
+  top: -60%;
+  opacity: 0.28;
+  background-repeat: repeat;
+  background-size: 260px 260px;
+  filter: blur(0.2px);
+}
+
+.blood-drops::before {
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(220, 20, 60, 0.75) 0 9px, transparent 10px),
+    radial-gradient(circle at 70% 35%, rgba(239, 68, 68, 0.70) 0 7px, transparent 8px),
+    radial-gradient(circle at 45% 75%, rgba(185, 28, 28, 0.72) 0 8px, transparent 9px),
+    radial-gradient(circle at 85% 10%, rgba(153, 27, 27, 0.68) 0 6px, transparent 7px);
+  animation: none;
+  filter: saturate(1.35) contrast(1.1);
+  opacity: 0.55;
+}
+
+.blood-drops::after {
+  background-image:
+    radial-gradient(circle at 35% 25%, rgba(127, 29, 29, 0.62) 0 10px, transparent 11px),
+    radial-gradient(circle at 80% 65%, rgba(220, 38, 38, 0.65) 0 6px, transparent 7px),
+    radial-gradient(circle at 10% 55%, rgba(239, 68, 68, 0.58) 0 8px, transparent 9px),
+    radial-gradient(circle at 60% 90%, rgba(185, 28, 28, 0.55) 0 7px, transparent 8px);
+  animation: none;
+  filter: saturate(1.25);
+  opacity: 0.45;
+}
+
+
+@keyframes gotasDescendo {
+  from { transform: translateY(-3%) translateX(0); }
+  to   { transform: translateY(3%) translateX(2%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blood-drops::before,
+  .blood-drops::after {
+    animation: none;
+  }
+}
+
+

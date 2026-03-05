@@ -1,0 +1,146 @@
+@import "./variaveis.css";
+
+/* =========================
+   2) Layout
+========================= */
+
+.container {
+   width: min(100% - 2rem, 760px);
+  margin-inline: auto;
+  padding-block: 1.25rem 2rem;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 1rem;
+  padding-inline: 1.25rem 1rem 2rem;
+}
+
+
+
+[hidden] {
+  display: none;
+}
+
+
+.hero {
+  width: min(100%,520px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+section + section {
+  margin-top: 1rem;
+}
+
+#secao-formulario{
+  width: 100%;
+}
+
+#secao-formulario > button {
+  margin-top: 0.9rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .container{
+    width: min(100% - 3rem,1200px);
+  }
+
+  #secao-formulario{
+    max-width: 900px;
+    margin-inline: auto;
+  }
+}
+
+
+
+
+/* =========================
+   3) Componentes
+========================= */
+
+
+#mostrar-formulario {
+  width: 100%;
+}
+
+form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-group input {
+  width: 100%;
+}
+
+#mostrar-status {
+  margin-top: 0.9rem;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+#lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+#lista li {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  color: var(--color-text);
+}
+
+/* estado de erro opcional */
+.is-error {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+/* footer da pagina */
+.app-footer {
+  width: min(100% - 2rem, 1200px);
+  margin: 1rem auto 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--color-surface) 92%, #fff 8%);
+  text-align: center;
+}
+
+.app-footer .assinatura {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.app-footer .copyright {
+  margin: 0.25rem 0 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.app-footer .aviso {
+  margin: 0.35rem 0 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
